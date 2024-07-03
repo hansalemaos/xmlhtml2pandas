@@ -1,0 +1,7 @@
+Cython
+exceptdrucker
+flatten_any_dict_iterable_or_whatsoever
+lxml
+numpy
+pandas
+setuptools
