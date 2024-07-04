@@ -897,4 +897,7 @@ def parse_xmlhtml(filebuffer, str xml_or_html='html', tuple[tuple] parser_kwargs
             df2[intcat] = df2[intcat].astype('Int64')
         except Exception:
             pass
+    chached_text_content.cache_clear()
+    get_txt_content.cache_clear()
+    get_html_content.cache_clear()
     return df2
