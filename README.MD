@@ -49,4 +49,36 @@ for picture in preprocess_images_and_run_tesseract(
     include_screenshots=True,
 ):
     print(picture)
+
+# on android 
+
+import os 
+import subprocess 
+os.environ["OMP_THREAD_LIMIT"] = "1"  
+os.environ["MAGICK_THREAD_LIMIT"] = "1" 
+os.environ["KMP_ALL_THREADS"] = "1"   
+os.environ["KMP_TEAMS_THREAD_LIMIT"] = "1" 
+os.environ["OMP_THREAD_LIMIT"] = "1"  
+os.environ["KMP_DEVICE_THREAD_LIMIT"] = "1" 
+
+from xmlhtml2pandas import parse_xmlhtml, preprocess_images_and_run_tesseract
+subprocess.run("screencap -p > /sdcard/shot.png",shell=True)
+for picture in preprocess_images_and_run_tesseract(
+    density=200,
+    resize_percentage=100,
+    tesser_cpus=1,
+    image_magick_cpus=1,
+    path_in=r"/sdcard/shot.png", 
+    path_out=r"/sdcard/Downloadsout",
+    magick_options="""-colorspace LinearGray  -normalize -auto-level -alpha deactivate  -adaptive-blur 1 -adaptive-sharpen 1 -trim -fuzz 60 -antialias -auto-gamma -auto-level -black-point-compensation -normalize -enhance -white-balance -antialias -black-threshold 4 -mean-shift 1x5+17%""",
+    magick_path=r"/data/data/com.termux/files/usr/bin/magick",
+    tesseractpath=r"/data/data/com.termux/files/usr/bin/tesseract",
+    tessdata_dir=r"/data/data/com.termux/files/usr/share/tessdata_fast",
+    tesser_options_str="-l por+eng --oem 3 --psm 6 -c tessedit_create_hocr=1 -c hocr_font_info=1 -c tessedit_pageseg_mode=6",
+    debug=False,
+    subprocess_kwargs_tesser=None,
+    subprocess_kwargs_magick=None,
+    include_screenshots=False,
+):
+    print(picture)
 ```
