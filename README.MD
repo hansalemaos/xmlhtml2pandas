@@ -8,14 +8,6 @@
 
 ```PY
 import os
-
-# first time only - to compile the xmlhtml.pyx file
-os.environ["LXML_INCLUDE"] = r"C:\ProgramData\anaconda3\envs\a0\Lib\site-packages\lxml"
-os.environ["LIBXML_INCLUDE"] = (
-    r"C:\ProgramData\anaconda3\envs\a0\Lib\site-packages\lxml\includes\libxml"
-)
-os.environ["ICONV_INCLUDE"] = r"C:\tools\Anaconda3\Library\include"
-
 # Tesseract and ImageMagick must be installed!
 os.environ["OMP_THREAD_LIMIT"] = "1"  # to limit the number of threads (tesseract)
 os.environ["MAGICK_THREAD_LIMIT"] = "1"  # to limit the number of threads (ImageMagick)

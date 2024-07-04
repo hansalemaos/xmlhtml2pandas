@@ -1,10 +1,10 @@
 import cython
 import numpy as np
 cimport numpy as np
-cimport lxml.includes.etreepublic as cetree
-cdef object etree
+#cimport lxml.includes.etreepublic as cetree
+#cdef object etree
 from lxml import etree
-cetree.import_lxml__etree()
+#cetree.import_lxml__etree()
 np.import_array()
 import pandas as pd
 from functools import cache

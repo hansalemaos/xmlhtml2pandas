@@ -36,18 +36,7 @@ configdict = {
     "sources": [name + ".pyx"],
     "include_dirs": [
         numpyincludefolder,
-        os.environ.get(
-            "LXML_INCLUDE",
-            # r"C:\ProgramData\anaconda3\envs\a0\Lib\site-packages\lxml",
-        ),
-        os.environ.get(
-            "LIBXML_INCLUDE",
-            # r"C:\ProgramData\anaconda3\envs\a0\Lib\site-packages\lxml\includes\libxml",
-        ),
-        os.environ.get(
-            "ICONV_INCLUDE",
-            # r"C:\tools\Anaconda3\Library\include",
-        ),
+        
     ],
     "define_macros": [
         ("NPY_NO_DEPRECATED_API", 1),
@@ -71,7 +60,7 @@ configdict = {
     "libraries": [],
     "runtime_library_dirs": [],
     "extra_objects": [],
-    "extra_compile_args": ["/O2"] if iswindows else ["-O2"],
+    "extra_compile_args": [],
     "extra_link_args": [],
     "export_symbols": [],
     "swig_opts": [],
