@@ -554,7 +554,7 @@ def preprocess_images_and_run_tesseract(
                 for size_col in correct_resize:
                     try:
                         df[size_col] = (
-                            (df[size_col].astype("Float64")) / (resize_percentage / 100)
+                            (df[size_col].astype("Float64")) / (float(resize_percentage) / 100.0)
                         ).astype("Int64")
                     except Exception:
                         if debug:
